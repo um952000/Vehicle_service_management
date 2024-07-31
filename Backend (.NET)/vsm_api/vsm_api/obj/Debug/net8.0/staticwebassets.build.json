@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zF7hy1e09MxUQOrNXQswKq2+y4wLjPMj82jr2nuE6qg=",
+  "Source": "vsm_api",
+  "BasePath": "_content/vsm_api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

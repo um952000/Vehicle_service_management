@@ -1,0 +1,128 @@
+<div class="container my-4">
+  <!-- Search Section -->
+  <h3 class="mb-3">Bill Of Materials</h3>
+  <div class="search mb-4">
+    <div class="d-flex align-items-center mb-3">
+      <input class="form-control me-2" name="id" id="search" type="number" placeholder="Enter Bill Of Material ID" [(ngModel)]="Search_id" />
+      <button class="btn btn-primary" (click)="Search()">Search</button>
+    </div>
+    <div class="SearchedBillOfMaterial" *ngIf="search != 2">
+      <div *ngIf="search == 0">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Bill Of Material ID</th>
+              <th>Service Record ID</th>
+              <th>Amount</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ upBillOfMaterial?.billOfMaterialID }}</td>
+              <td>{{ upBillOfMaterial?.serviceRecordID }}</td>
+              <td>{{ upBillOfMaterial?.amount }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="delete(upBillOfMaterial?.billOfMaterialID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="search == 1">
+        <h1>Enter Registered Bill Of Material ID</h1>
+      </div>
+      <button class="btn btn-secondary mt-3" (click)="close()">Close search</button>
+    </div>
+  </div>
+
+  <!-- All Bill Of Materials Table -->
+  <div class="allBillOfMaterialsTable">
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Bill Of Material ID</th>
+          <th>Service Record ID</th>
+          <th>Amount</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let billOfMaterial of allBillOfMaterials">
+          <td>{{ billOfMaterial.billOfMaterialID }}</td>
+          <td>{{ billOfMaterial.serviceRecordID }}</td>
+          <td>{{ billOfMaterial.amount }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="delete(billOfMaterial.billOfMaterialID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!--//Bootstrap
+<div class="search">
+    <input name="id" id="search" type="number" placeholder="Enter Bill Of Material ID" [(ngModel)]="Search_id" />
+    <button (click)="Search()">Search</button>
+    <div class="SearchedBillOfMaterial" *ngIf="search != 2">
+      <div *ngIf="search == 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Bill Of Material ID</th>
+              <th>Service Record ID</th>
+            
+              <th>Amount</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ upBillOfMaterial?.billOfMaterialID }}</td>
+              <td>{{ upBillOfMaterial?.serviceRecordID }}</td>
+          
+              <td>{{ upBillOfMaterial?.amount }}</td>
+              <td>
+                <button (click)="delete(upBillOfMaterial?.billOfMaterialID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="search == 1">
+        <h1>Enter Registered Bill Of Material ID</h1>
+      </div>
+      <button (click)="close()">Close search</button>
+    </div>
+  </div>
+  
+  <div class="allBillOfMaterialsTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Bill Of Material ID</th>
+          <th>Service Record ID</th>
+    
+          <th>Amount</th>
+        
+          <th>Delete</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let billOfMaterial of allBillOfMaterials">
+          <td>{{ billOfMaterial.billOfMaterialID }}</td>
+          <td>{{ billOfMaterial.serviceRecordID }}</td>
+      
+          <td>{{ billOfMaterial.amount }}</td>
+          <td>
+            <button (click)="delete(billOfMaterial.billOfMaterialID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+-->

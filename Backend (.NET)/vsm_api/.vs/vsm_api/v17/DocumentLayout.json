@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|e:\\tech m\\backend\\vs 2022\\vsm_api\\vsm_api\\controllers\\loginapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|solutionrelative:vsm_api\\controllers\\loginapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|e:\\tech m\\backend\\vs 2022\\vsm_api\\vsm_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|solutionrelative:vsm_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|e:\\tech m\\backend\\vs 2022\\vsm_api\\vsm_api\\models\\vsmcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F486F51-5C85-4569-816A-3268387F525E}|vsm_api\\vsm_api.csproj|solutionrelative:vsm_api\\models\\vsmcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginAPIController.cs",
+              "DocumentMoniker": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Controllers\\LoginAPIController.cs",
+              "RelativeDocumentMoniker": "vsm_api\\Controllers\\LoginAPIController.cs",
+              "ToolTip": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Controllers\\LoginAPIController.cs",
+              "RelativeToolTip": "vsm_api\\Controllers\\LoginAPIController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAQwEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T08:59:57.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VsmContext.cs",
+              "DocumentMoniker": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Models\\VsmContext.cs",
+              "RelativeDocumentMoniker": "vsm_api\\Models\\VsmContext.cs",
+              "ToolTip": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Models\\VsmContext.cs",
+              "RelativeToolTip": "vsm_api\\Models\\VsmContext.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAuwC4AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T08:41:52.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Program.cs",
+              "RelativeDocumentMoniker": "vsm_api\\Program.cs",
+              "ToolTip": "E:\\Tech M\\Backend\\VS 2022\\vsm_api\\vsm_api\\Program.cs",
+              "RelativeToolTip": "vsm_api\\Program.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAYwCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T08:39:03.83Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

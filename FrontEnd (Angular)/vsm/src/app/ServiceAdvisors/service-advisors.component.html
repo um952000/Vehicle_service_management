@@ -1,0 +1,14 @@
+<!-- service-advisors.component.html -->
+<div class="service-advisor-container">
+    <div class="navbar">
+      <span class="toggle-button" (click)="toggleNavBar()">&#9776;</span>
+    </div>
+    <div class="sidebar" [ngClass]="{'active': isNavBarOpen}">
+      <p (click)="navigateTo('dashboard', advisorId)">Dashboard</p>
+      <p (click)="navigateTo('dashboard', advisorId)">Dashboard</p>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

@@ -1,0 +1,53 @@
+<h3 class="mb-3">Services Scheduled</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Service Record ID</th>
+      <th>Vehicle ID</th>
+      <th>Service Advisor ID</th>
+      <th>Service Date</th>
+      <th>Status</th>
+      <th>Work Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let serviceRecord of allServiceRecord">
+      <td>{{ serviceRecord.serviceRecordID }}</td>
+      <td>{{ serviceRecord.vehicleID }}</td>
+      <td>{{ serviceRecord.serviceAdvisorID }}</td>
+      <td>{{ serviceRecord.serviceDate | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ serviceRecord.status }}</td>
+      <td>
+        <a class="btn btn-primary btn-sm" [routerLink]="[r, serviceRecord.serviceRecordID]">Add Work Item</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!--//Bootstrap<table>
+    <thead>
+      <tr>
+        <th>Service Record ID</th>
+        <th>Vehicle ID</th>
+        <th>Service Advisor ID</th>
+        <th>Service Date</th>
+        <th>Status</th>
+        <th>Work Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let serviceRecord of allServiceRecord">
+        <td>{{ serviceRecord.serviceRecordID }}</td>
+        <td>{{ serviceRecord.vehicleID }}</td>
+        <td>{{ serviceRecord.serviceAdvisorID }}</td>
+        <td>{{ serviceRecord.serviceDate | date: 'dd-MM-yyyy' }}</td>
+        <td>{{ serviceRecord.status }}</td>
+        <td>
+          <button [routerLink]="[r,serviceRecord.serviceRecordID]">Add WorkItem</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+-->

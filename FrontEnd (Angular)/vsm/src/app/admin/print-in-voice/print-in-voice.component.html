@@ -1,0 +1,86 @@
+<div class="container my-4">
+  <!-- Vehicle Details -->
+  <h3 class="mb-3">Print Invoice</h3>
+  <div class="mb-4">
+    <h2>Vehicle Details</h2>
+    <p><strong>Vehicle ID:</strong> {{ vr.vehicleID }}</p>
+    <p><strong>Company:</strong> {{ vr.company }}</p>
+    <p><strong>Model:</strong> {{ vr.model }}</p>
+    <p><strong>Year:</strong> {{ vr.year }}</p>
+    <p><strong>VIN:</strong> {{ vr.vin }}</p>
+    <p><strong>Customer ID:</strong> {{ vr.customerID }}</p>
+    <p><strong>Serviced Date:</strong> {{ vr.serviceDueDate | date: 'dd-MM-yyyy' }}</p>
+  </div>
+
+  <!-- Work Items Table -->
+  <div class="mb-4">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workItem of wi">
+          <td>{{ workItem.itemName }}</td>
+          <td>{{ workItem.quantity }}</td>
+          <td>{{ workItem.cost | currency }}</td>
+        </tr>
+        <tr>
+          <td><strong>Total Amount</strong></td>
+          <td></td>
+          <td><strong>{{ bill.amount | currency }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Dispatch Section -->
+  <div>
+    <h3>Amount to be paid: {{ bill.amount | currency }}</h3>
+    <button class="btn btn-primary" (click)="dispatch()">Dispatch Vehicle</button>
+  </div>
+</div>
+
+
+<!--//Bootstrap
+<div>
+    <h2>Vehicle Details</h2>
+    <p>Vehicle ID: {{ vr.vehicleID }}</p>
+    <p>Company: {{ vr.company }}</p>
+    <p>Model: {{ vr.model }}</p>
+    <p>Year: {{ vr.year }}</p>
+    <p>VIN: {{ vr.vin }}</p>
+    <p>Customer ID: {{ vr.customerID }}</p>
+    <p>Serviced Date: {{ vr.serviceDueDate | date: 'dd-MM-yyyy' }}</p>
+  </div>
+  <diV>
+    <table>
+        <thead>
+          <tr>
+           <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let workItem of wi">
+           <td>{{ workItem.itemName }}</td>
+            <td>{{ workItem.quantity }}</td>
+            <td>{{ workItem.cost | currency }}</td>
+            </tr>
+            <tr>
+                <td>Total Amount</td>
+                <td></td>
+                <td>{{bill.amount | currency}}</td>
+            </tr>
+        </tbody>
+      </table>
+  </diV>
+  <div>
+    <h3>Amount to pe paid : {{bill.amount| currency}}</h3>
+    <button (click)="dispatch()" >Dispatch Vehicle</button>
+  </div>
+-->

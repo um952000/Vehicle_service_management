@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="navbar">
+      <div class="hamburger" (click)="toggleNavbar()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="nav" [class.active]="isNavbarOpen">
+        <p (click)="navigateTo('dashboard')" routerLinkActive="active">Dashboard</p>
+        <p (click)="navigateTo('vehicle')" routerLinkActive="active">Vehicle</p>
+        <p (click)="navigateTo('customer')" routerLinkActive="active">Customer</p>
+        <p (click)="navigateTo('service-advisor')" routerLinkActive="active">Service Advisor</p>
+        <p (click)="navigateTo('service-record')" routerLinkActive="active">Service Record</p>
+        <p (click)="navigateTo('work-item')" routerLinkActive="active">Work Item</p>
+        <p (click)="navigateTo('bill-of-material')" routerLinkActive="active">Bill</p>
+      </div>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

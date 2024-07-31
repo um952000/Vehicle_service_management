@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+  }
+  
+  .navbar {
+    width: 200px;
+    background-color: #f8f9fa;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    transition: width 0.3s;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav p {
+    padding: 15px;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+  .nav p:hover {
+    background-color: #ddd;
+  }
+  
+  .nav p.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .nav.active {
+    display: block;
+  }
+  
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+    width: calc(100% - 200px);
+    transition: margin-left 0.3s, width 0.3s;
+  }
+  
+  .navbar.active .content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .navbar.active .nav {
+    width: 0;
+    overflow: hidden;
+  }
+  
+  .navbar.active .bar {
+    background-color: #007bff;
+  }
+ /* changes after bootstrap*/
+
+ .navbar.navbar[_ngcontent-ng-c3599916132] {
+  width: 198px;
+  background-color: #f8f9fa;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  transition: width 0.3s;
+  margin-left: -93px;
+  display: table-column;
+}

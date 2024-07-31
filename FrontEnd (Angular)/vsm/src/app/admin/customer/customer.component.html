@@ -1,0 +1,265 @@
+<div class="container my-4">
+  <!-- Search Section -->
+  <h3 class="mb-3">Customer Detail</h3>
+  <div class="search mb-4" *ngIf="!Create && !isEdit">
+    <div class="d-flex align-items-center mb-3">
+      <input class="form-control me-2" name="id" id="search" type="number" placeholder="Enter Customer ID" [(ngModel)]="Search_id" />
+      <button class="btn btn-primary" (click)="Search()">Search</button>
+    </div>
+    <div class="SearchedCustomer" *ngIf="search != 2">
+      <div *ngIf="search == 0">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Customer ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Update/Delete Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ upCustomer.customerID }}</td>
+              <td>{{ upCustomer.firstName }}</td>
+              <td>{{ upCustomer.lastName }}</td>
+              <td>{{ upCustomer.phone }}</td>
+              <td>{{ upCustomer.email }}</td>
+              <td>{{ upCustomer.address }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm" (click)="update(upCustomer.customerID)">Update</button>
+                <button class="btn btn-danger btn-sm" (click)="delete(upCustomer.customerID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="search == 1">
+        <h1>Enter Registered Customer Id</h1>
+      </div>
+      <button class="btn btn-secondary mt-3" (click)="close()">Close search</button>
+    </div>
+  </div>
+
+  <!-- All Customers Table -->
+  <div class="allCustomersTable" *ngIf="!Create && !isEdit">
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Customer ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Update/Delete Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of allCustomers">
+          <td>{{ customer.customerID }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="update(customer.customerID)">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(customer.customerID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success mt-3" (click)="create()">Add New</button>
+  </div>
+
+  <!-- Create Customer Form -->
+  <div class="createCustomer" *ngIf="Create">
+    <h3>Customer Detail Form</h3>
+    <form #customerForm="ngForm" (ngSubmit)="submit(customerForm)">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" name="firstName" id="firstName" #firstName="ngModel" ngModel class="form-control" placeholder="First Name" required />
+        <div class="invalid-feedback" *ngIf="!firstName.valid && firstName.touched">Enter First Name</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" name="lastName" id="lastName" #lastName="ngModel" ngModel class="form-control" placeholder="Last Name" required />
+        <div class="invalid-feedback" *ngIf="!lastName.valid && lastName.touched">Enter Last Name</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone:</label>
+        <input type="text" name="phone" id="phone" #phone="ngModel" ngModel class="form-control" placeholder="Phone" required />
+        <div class="invalid-feedback" *ngIf="!phone.valid && phone.touched">Enter Phone</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" name="email" id="email" #email="ngModel" ngModel class="form-control" placeholder="Email" required />
+        <div class="invalid-feedback" *ngIf="!email.valid && email.touched">Enter Email</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <input type="text" name="address" id="address" #address="ngModel" ngModel class="form-control" placeholder="Address" required />
+        <div class="invalid-feedback" *ngIf="!address.valid && address.touched">Enter Address</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!customerForm.valid">Submit</button>
+    </form>
+  </div>
+
+  <!-- Edit Customer Form -->
+  <div *ngIf="isEdit">
+    <h3>Update The Detail for Customer Id : {{upCustomer.customerID}}</h3>
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name:</label>
+      <input id="firstName" type="text" class="form-control" [(ngModel)]="upCustomer.firstName" />
+    </div>
+
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name:</label>
+      <input id="lastName" type="text" class="form-control" [(ngModel)]="upCustomer.lastName" />
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone:</label>
+      <input id="phone" type="text" class="form-control" [(ngModel)]="upCustomer.phone" />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" type="email" class="form-control" [(ngModel)]="upCustomer.email" />
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Address:</label>
+      <input id="address" type="text" class="form-control" [(ngModel)]="upCustomer.address" />
+    </div>
+
+    <button class="btn btn-success" (click)="update(upCustomer.customerID)">Save Updates</button>
+  </div>
+</div>
+
+<!--
+<div class="search" *ngIf="!Create && !isEdit">
+    <input name="id" id="search" type="number" placeholder="Enter_Customer_Id" [(ngModel)]="Search_id" />
+    <button (click)="Search()">Search</button>
+    <div class="SearchedCustomer" *ngIf="search != 2">
+      <div *ngIf="search == 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Update/Delete Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ upCustomer.customerID }}</td>
+              <td>{{ upCustomer.firstName }}</td>
+              <td>{{ upCustomer.lastName }}</td>
+              <td>{{ upCustomer.phone }}</td>
+              <td>{{ upCustomer.email }}</td>
+              <td>{{ upCustomer.address }}</td>
+              <td>
+                <button (click)="update(upCustomer.customerID)">Update</button>
+                <button (click)="delete(upCustomer.customerID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="search == 1">
+        <h1>Enter Registered Customer Id</h1>
+      </div>
+      <button (click)="close()">Close search</button>
+    </div>
+  </div>
+  
+  <div class="allCustomersTable" *ngIf="!Create && !isEdit">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Update/Delete Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of allCustomers">
+          <td>{{ customer.customerID }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>
+            <button (click)="update(customer.customerID)">Update</button>
+            <button (click)="delete(customer.customerID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="AddNew" (click)="create()">Add New</button>
+  </div>
+  
+  <div class="createCustomer" *ngIf="Create">
+    <p>Customer Detail Form</p>
+    <form #customerForm="ngForm" (ngSubmit)="submit(customerForm)">
+      <label for="firstName">First Name:</label>
+      <input type="text" name="firstName" id="firstName" #firstName="ngModel" ngModel placeholder="First Name" required/><br><br>
+      <p *ngIf="!firstName.valid && firstName.touched">Enter First Name</p>
+  
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="lastName" id="lastName" #lastName="ngModel" ngModel placeholder="Last Name" required/><br><br>
+      <p *ngIf="!lastName.valid && lastName.touched">Enter Last Name</p>
+  
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" id="phone" #phone="ngModel" ngModel placeholder="Phone" required/><br><br>
+      <p *ngIf="!phone.valid && phone.touched">Enter Phone</p>
+  
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" #email="ngModel" ngModel placeholder="Email" required/><br><br>
+      <p *ngIf="!email.valid && email.touched">Enter Email</p>
+  
+      <label for="address">Address:</label>
+      <input type="text" name="address" id="address" #address="ngModel" ngModel placeholder="Address" required/><br><br>
+      <p *ngIf="!address.valid && address.touched">Enter Address</p>
+  
+      <button type="submit" [disabled]="!customerForm.valid">Submit</button>
+    </form>
+  </div>
+  
+  <div *ngIf="isEdit">
+    <h3>Update The Detail for Customer Id : {{upCustomer.customerID}}</h3>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text" [(ngModel)]="upCustomer.firstName"/><br><br>
+  
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text" [(ngModel)]="upCustomer.lastName"/><br><br>
+  
+    <label for="phone">Phone:</label>
+    <input id="phone" type="text" [(ngModel)]="upCustomer.phone"/><br><br>
+  
+    <label for="email">Email:</label>
+    <input id="email" type="email" [(ngModel)]="upCustomer.email"/><br>
+
+    <label for="address">Address:</label>
+    <input id="address" type="text" [(ngModel)]="upCustomer.address"/><br>
+    <button (click)="update(upCustomer.customerID)" >Save Updates</button>
+  </div>
+-->

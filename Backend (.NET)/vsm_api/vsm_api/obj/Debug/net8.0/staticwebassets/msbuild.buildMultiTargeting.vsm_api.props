@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\vsm_api.props" />
+</Project>

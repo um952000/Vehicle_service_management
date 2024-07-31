@@ -1,0 +1,202 @@
+<div class="container my-4">
+  <div class="table mb-4" *ngIf="serviced">
+    <h3 class="mb-3">Vehicles Serviced Completed:</h3>
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Company</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>VIN</th>
+          <th>Customer ID</th>
+          <th>Service Due Date</th>
+          <th>Status</th>
+          <th>Print Invoice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of allVehicles" >
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.vehicleID }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.company }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.model }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.year }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.vin }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.customerID }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">{{ vehicle.status }}</td>
+          <td *ngIf="vehicle.status == 'Serviced'">
+            <a class="btn btn-info btn-sm" [routerLink]="['/admin/print-invoice', vehicle.vehicleID]">Print</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table mb-4" *ngIf="due">
+    <h3 class="mb-3">Vehicles Due For Servicing:</h3>
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Company</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>VIN</th>
+          <th>Customer ID</th>
+          <th>Service Due Date</th>
+          <th>Status</th>
+          <th>Schedule for Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of allVehicles" >
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.vehicleID }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.company }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.model }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.year }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.vin }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.customerID }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+          <td *ngIf="vehicle.status == 'Due'">{{ vehicle.status }}</td>
+          <td *ngIf="vehicle.status == 'Due'">
+            <a class="btn btn-warning btn-sm" [routerLink]="['/admin/schedule', vehicle.vehicleID]">Schedule</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table" *ngIf="underServicing">
+    <h3 class="mb-3">Vehicles Under Servicing:</h3>
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Company</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>VIN</th>
+          <th>Customer ID</th>
+          <th>Service Due Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of allVehicles" >
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.vehicleID }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.company }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.model }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.year }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.vin }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.customerID }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+          <td *ngIf="vehicle.status == 'Under Servicing'">{{ vehicle.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- //Boostrap
+<div class="table" *ngIf="serviced" >
+    <h3 >Vehicles Serviced Completed:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle ID</th>
+      <th>Company</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>VIN</th>
+      <th>Customer ID</th>
+      <th>Service Due Date</th>
+      <th>Status</th>
+      <th>Print InVoice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of allVehicles">
+        
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.vehicleID }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.company }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.model }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.year }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.vin }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.customerID }}</td>
+      
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+      <td *ngIf="vehicle.status=='Serviced'">{{ vehicle.status }}</td>
+      <td *ngIf="vehicle.status=='Serviced'"><button [routerLink]="['/admin/print-invoice',vehicle.vehicleID]" >Print</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+
+    <div class="table" *ngIf="due" >
+        <h3 >Vehicles Due For Servicing:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Company</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>VIN</th>
+          <th>Customer ID</th>
+          <th>Service Due Date</th>
+          <th>Status</th>
+          <th>Schedule for service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of allVehicles">
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.vehicleID }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.company }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.model }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.year }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.vin }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.customerID }}</td>
+          
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+          <td *ngIf="vehicle.status=='Due'">{{ vehicle.status }}</td>
+          <td *ngIf="vehicle.status=='Due'"><button [routerLink]="['/admin/schedule',vehicle.vehicleID]" >Schedule</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<div class="table" *ngIf="underServicing" >
+    <h3 >Vehicles Under Servicing:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle ID</th>
+      <th>Company</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>VIN</th>
+      <th>Customer ID</th>
+      <th>Service Due Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehicle of allVehicles">
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.vehicleID }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.company }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.model }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.year }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.vin }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.customerID }}</td>
+      
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.serviceDueDate | date: 'dd-MM-YYYY' }}</td>
+      <td *ngIf="vehicle.status=='Under Servicing'">{{ vehicle.status }}</td>
+   
+    </tr>
+  </tbody>
+</table>
+</div>
+-->

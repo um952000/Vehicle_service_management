@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div> </div>
+    <h1 class="text-center">Welcome To Vehicle Service Management!</h1>
+    <h3 class="text-center">Please Login Yourself</h3>
+  
+    <div *ngIf="msg!=''" class="alert alert-warning text-center" role="alert">
+      {{msg}}
+    </div>
+  
+    <form #userForm="ngForm" (ngSubmit)="onLoginFormSubmit(userForm)" class="mx-auto mt-4" style="max-width: 400px;">
+      <div class="form-group">
+        <label for="userid">User I'd</label>
+        <input placeholder="User I'd" name="userid" type="text" id="userid" class="form-control" ngModel required/>
+      </div>
+      <div class="form-group mt-3">
+        <label for="password">Password</label>
+        <input placeholder="Password" name="password" type="password" id="password" class="form-control" ngModel required/>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mt-4" [disabled]="!userForm.valid">Login</button>
+    </form>
+  </div>
+  
+
+<!--<h1>Welcome To Vehicle Service Management!</h1>
+<h3>Please Login Yourself</h3>
+
+
+<div *ngIf="msg!=''">
+    <p>{{msg}}</p>
+</div>
+
+<form #userForm="ngForm" (ngSubmit)="onLoginFormSubmit(userForm)">
+    <label for="name">User I'd : </label>
+    <input placeholder="User I'd" name="userid" type="text" id="name" ngModel required/>
+    <br/><br/>
+    <label for="password">Password : </label>
+    <input placeholder="Password" name="password"  type="password" id="password" ngModel required/>
+    <br/><br/>
+   <button type="submit" [disabled]="!userForm.valid" >Login</button>
+</form>
+-->
